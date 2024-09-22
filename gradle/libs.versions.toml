@@ -1,0 +1,28 @@
+[versions]
+agp = "8.6.0"
+detekt = "1.23.5"
+ktlint = "12.1.0"
+kotlin = "1.8.22"
+mockK = "1.13.9"
+
+[libraries]
+kotlin-bom = { group = "org.jetbrains.kotlin", name = "kotlin-bom", version.ref = "kotlin" }
+kotlin-stdlib = { group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8" }
+
+# Tests
+test-junit = { group = "junit", name = "junit", version = "4.13.2" }
+test-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-test", version = "" }
+test-mockK = { group = "io.mockk", name = "mockk", version.ref = "mockK" }
+
+[bundles]
+test = [
+    "test-junit",
+    "test-kotlin",
+    "test-mockK",
+]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
+ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }

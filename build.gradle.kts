@@ -1,21 +1,22 @@
 plugins {
-    kotlin("jvm") version "2.0.20"
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.jvm) apply false
+    alias(libs.plugins.ktlint)
+    alias(libs.plugins.detekt)
 }
 
-group = "com.mohsenoid"
-version = "1.0-SNAPSHOT"
+allprojects {
+    apply(plugin = rootProject.libs.plugins.ktlint.get().pluginId)
+    apply(plugin = rootProject.libs.plugins.detekt.get().pluginId)
 
-repositories {
-    mavenCentral()
+    detekt {
+        allRules = true
+        config = files("$rootDir/config/detekt/detekt-config.yml")
+        baseline = file("detekt-baseline.xml")
+        buildUponDefaultConfig = true
+    }
 }
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-kotlin {
-    jvmToolchain(18)
+task<Delete>("clean") {
+    delete = setOf(rootProject.buildDir)
 }
