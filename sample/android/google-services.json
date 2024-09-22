@@ -1,0 +1,126 @@
+{
+  "project_info": {
+    "project_number": "1089723310345",
+    "project_id": "mohsenoid-android-sample-app",
+    "storage_bucket": "mohsenoid-android-sample-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089723310345:android:5c8e2d3846a3a39b55b3d8",
+        "android_client_info": {
+          "package_name": "com.mohsenoid.klogx.android.sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089723310345-pffcgmgq84r89queq52dtkui523173qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQGs8Ap0aTsH-0siPchXb5sizuqbDAupU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089723310345-pffcgmgq84r89queq52dtkui523173qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089723310345:android:029496204ee2855755b3d8",
+        "android_client_info": {
+          "package_name": "com.mohsenoid.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089723310345-pffcgmgq84r89queq52dtkui523173qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQGs8Ap0aTsH-0siPchXb5sizuqbDAupU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089723310345-pffcgmgq84r89queq52dtkui523173qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089723310345:android:1cdca39f123b00c455b3d8",
+        "android_client_info": {
+          "package_name": "com.mohsenoid.myapplication.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089723310345-pffcgmgq84r89queq52dtkui523173qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQGs8Ap0aTsH-0siPchXb5sizuqbDAupU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089723310345-pffcgmgq84r89queq52dtkui523173qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089723310345:android:c246668af2b20cc055b3d8",
+        "android_client_info": {
+          "package_name": "com.mohsenoid.myapplication.stg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089723310345-pffcgmgq84r89queq52dtkui523173qh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQGs8Ap0aTsH-0siPchXb5sizuqbDAupU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089723310345-pffcgmgq84r89queq52dtkui523173qh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,24 +7,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.mohsenoid.klogx.KLogTarget
+import androidx.compose.ui.unit.dp
+import com.mohsenoid.klogx.android.sample.feature_x.FeatureX
+import com.mohsenoid.klogx.android.sample.feature_y.FeatureY
 import com.mohsenoid.klogx.android.sample.ui.theme.SampleApplicationTheme
-
-private val logWriter = SampleFeatureKLogWriter()
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        logWriter.v(message = "onCreate", target = KLogTarget.EXTERNAL)
-
         enableEdgeToEdge()
         setContent {
             SampleApplicationTheme {
@@ -49,13 +45,8 @@ fun Greeting(
             text = "Hello $name!",
         )
 
-        Button(
-            onClick = {
-                logWriter.d(target = KLogTarget.EXTERNAL) { "Button clicked" }
-            },
-        ) {
-            Text("Click me")
-        }
+        FeatureX(modifier = Modifier.padding(16.dp))
+        FeatureY(modifier = Modifier.padding(16.dp))
     }
 }
 
