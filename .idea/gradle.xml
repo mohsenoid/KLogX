@@ -6,13 +6,16 @@
       <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="" />
+        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/lib" />
             <option value="$PROJECT_DIR$/sample" />
+            <option value="$PROJECT_DIR$/sample/android" />
           </set>
         </option>
+        <option name="resolveExternalAnnotations" value="false" />
       </GradleProjectSettings>
     </option>
   </component>
