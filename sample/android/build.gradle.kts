@@ -62,6 +62,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    // Lib
+    implementation(project(":lib"))
+
     // Test
     testImplementation(libs.bundles.test)
 
