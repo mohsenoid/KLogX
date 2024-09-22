@@ -1,10 +1,69 @@
 # <img src="LOGO.webp" alt="Logo" style="width:54px;" /> KLogX
 
-KLogX is a Kotlin logging library designed to provide a flexible and efficient way to log messages in your application. It supports different log levels and allows you to register custom appenders to handle log messages.
+KLogX is a Kotlin logging library designed to provide a flexible and efficient way to log messages in your application. It supports different log levels and log targets and allows you to register custom appenders to handle log messages based on their filter.
+
+
+## Features
+
+- Supports multiple log levels: INFO, WARN, ERROR, etc.
+- Supports multiple log target: INTERNAL, EXTERNAL, REMOTE.
+- Allows lazy message evaluation
+- Customizable log targets by filter
+- Register custom appenders
+
+
+## Installation
+
+Add the following dependency to your `build.gradle` file:
+
+```groovy
+dependencies {
+    implementation 'com.mohsenoid.klogx:core:1.0.0'
+}
+```
+
+
+## Usage
+
+
+### Basic logging
+
+To log messages, use the `KLogWriter` interface. Here are some examples:
+
+```kotlin
+class FeatureXLogWriter : DefaultKLogWriter {
+    override val tag: String = "FeatureX"
+}
+
+val logWriter = FeatureXLogWriter()
+
+// Info log
+logWriter.i("Debugger is active")
+
+// Warning log
+logWriter.w("Launch timeout has expired, giving up wake Lock!")
+
+// Error log
+logWriter.e("Uncaught handler: thread main exiting due to uncaught exception", throwable = e)
+
+// WTF log
+logWriter.wtf("What A Terrible Failure")
+```
+
+
+### Lazy message evaluation
+
+You can also log expensive messages lazily to avoid calculation if they got filtered out:
+
+```kotlin
+logWriter.d { "A ${veryExpensiveMessage()}" }
+```
+
+## Building blocks
 
 ```mermaid
 ---
-title: KLogX Parts
+title: KLogX
 ---
 classDiagram
 		direction tb
@@ -86,59 +145,10 @@ classDiagram
     KLogWriter <|-- DefaultKLogWriter
 ```
 
-## Features
 
-- Supports multiple log levels: INFO, WARN, ERROR, etc.
-- Allows lazy message evaluation
-- Customizable log targets
-- Register custom appenders
+### Log Appenders
 
-## Installation
-
-Add the following dependency to your `build.gradle` file:
-
-```groovy
-dependencies {
-    implementation 'com.mohsenoid:klogx:1.0.0'
-}
-```
-
-## Usage
-
-### Basic logging
-
-To log messages, use the `KLogWriter` interface. Here are some examples:
-
-```kotlin
-val logger: KLogWriter = DefaultKLogWriter()
-
-// Info log
-logger.i("Debugger is active", KLogTarget.CONSOLE, null)
-
-// Warning log
-logger.w("Launch timeout has expired, giving up wake Lock!", KLogTarget.CONSOLE, null)
-
-// Error log
-logger.e("Uncaught handler: thread main exiting due to uncaught exception", KLogTarget.CONSOLE, null)
-
-// WTF log
-logger.wtf("What A Terrible Failure", KLogTarget.CONSOLE, null)
-```
-
-### Lazy message evaluation
-
-You can also log messages lazily:
-
-```kotlin
-logger.i(KLogTarget.CONSOLE, null) { "Debugger is active" }
-logger.w(KLogTarget.CONSOLE, null) { "Launch timeout has expired, giving up wake Lock!" }
-logger.e(KLogTarget.CONSOLE, null) { "Uncaught handler: thread main exiting due to uncaught exception" }
-logger.wtf(KLogTarget.CONSOLE, null) { "What A Terrible Failure" }
-```
-
-### Custom Appenders
-
-You can register custom log appenders to handle log messages:
+You can register log appenders to handle log messages based on the defined filter:
 
 ```kotlin
 val customAppender = object : KLogAppender {
@@ -151,6 +161,102 @@ val customAppender = object : KLogAppender {
 
 KLogLogger.registerAppender(customAppender)
 ```
+
+
+### Log Filter
+
+The log filter allows logger to decide if a log should be sent to an appender or not:
+
+```kotlin
+class CustomLogFilter : KLogFilter {
+    override fun isLoggable(
+        target: KLogTarget,
+        level: KLogLevel,
+        tag: String,
+        throwable: Throwable?,
+    ): Boolean = level.priority >= KLogLevel.INFO.priority &&
+        target == KLogTarget.EXTERNAL &&
+        !tag.contains("secret") &&
+        throwable !is SecurityException
+}
+```
+
+
+### Log Target
+
+The Log target could be used for the internal, external, or remote logs. It is another means of log filtering:
+
+```kotlin
+logWriter.w("Launch timeout has expired, giving up wake Lock!", target = KLogTarget.EXTERNAL)
+```
+
+
+## Supported Appenders
+
+
+### Android Logcat
+
+```groovy
+dependencies {
+    implementation 'com.mohsenoid.klogx.android:logcat:1.0.0'
+}
+```
+
+Usage:
+```kotlin
+val logcatLogFilter = SampleLogcatLogFilter()
+val logcatLogAppender = KLogLogcatAppender(logcatLogFilter)
+KLogLogger.registerAppender(logcatLogAppender)
+```
+
+
+### Android Timber
+
+```groovy
+dependencies {
+    implementation 'com.mohsenoid.klogx.android:timber:1.0.0'
+}
+```
+
+Usage:
+```kotlin
+val timberLogFilter = DefaultKLogFilter()
+val timberLogAppender = KLogTimberAppender(timberLogFilter)
+KLogLogger.registerAppender(timberLogAppender)
+```
+
+
+### Android Firebase
+
+```groovy
+dependencies {
+    implementation 'com.mohsenoid.klogx.android:firebase:1.0.0'
+}
+```
+
+Usage:
+
+```kotlin
+val firebaseLogFilter = SampleFirebaselLogFilter()
+val firebaseLogAppender = KLogFirebaseAppender(firebaseLogFilter)
+KLogLogger.registerAppender(firebaseLogAppender)
+```
+
+
+### Android Instabug
+
+```groovy
+dependencies {
+    implementation 'com.mohsenoid.klogx.android:instabug:1.0.0'
+}
+```
+
+```kotlin
+val instabugLogFilter = SampleInstabugLogFilter()
+val instabugLogAppender = KLogInstabugAppender(instabugLogFilter)
+KLogLogger.registerAppender(instabugLogAppender)
+```
+
 
 ## License
 

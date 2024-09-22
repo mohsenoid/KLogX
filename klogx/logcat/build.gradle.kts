@@ -3,11 +3,11 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
-project.ext.set("PUBLICATION_GROUP_ID", "com.mohsenoid.klogx")
+project.ext.set("PUBLICATION_GROUP_ID", "com.mohsenoid.klogx.android")
 project.ext.set("PUBLICATION_ARTIFACT_ID", "logcat")
 
 android {
-    namespace = "com.mohsenoid.klogx.logcat"
+    namespace = "com.mohsenoid.klogx.android.logcat"
     compileSdk = 34
 
     defaultConfig {

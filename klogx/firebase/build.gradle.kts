@@ -3,11 +3,11 @@ plugins {
     alias(libs.plugins.kotlin.android)
 }
 
-project.ext.set("PUBLICATION_GROUP_ID", "com.mohsenoid.klogx")
+project.ext.set("PUBLICATION_GROUP_ID", "com.mohsenoid.klogx.android")
 project.ext.set("PUBLICATION_ARTIFACT_ID", "firebase")
 
 android {
-    namespace = "com.mohsenoid.klogx.firebase"
+    namespace = "com.mohsenoid.klogx.android.firebase"
     compileSdk = 34
 
     defaultConfig {
