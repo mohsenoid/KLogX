@@ -13,12 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.mohsenoid.klogx.android.sample.feature_x.FeatureX
-import com.mohsenoid.klogx.android.sample.feature_y.FeatureY
+import com.mohsenoid.klogx.android.sample.featureX.FeatureX
+import com.mohsenoid.klogx.android.sample.featureY.FeatureY
 import com.mohsenoid.klogx.android.sample.ui.theme.SampleApplicationTheme
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

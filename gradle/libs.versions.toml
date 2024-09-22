@@ -4,16 +4,20 @@ kotlin = "2.0.20"
 coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
-espressoCore = "3.6.1"
-lifecycleRuntimeKtx = "2.8.6"
-activityCompose = "1.9.2"
-composeBom = "2024.09.02"
-detekt = "1.23.6"
-ktlint = "12.1.1"
 mockK = "1.13.9"
+espressoCore = "3.6.1"
+appcompat = "1.7.0"
+activityCompose = "1.9.2"
+lifecycleRuntimeKtx = "2.8.6"
+composeBom = "2024.09.02"
+material = "1.12.0"
 googleGmsGoogleServices = "4.4.2"
 googleFirebaseCrashlytics = "3.0.2"
 firebaseBom = "33.3.0"
+timber = "5.0.1"
+instabug = "11.8.0"
+detekt = "1.23.6"
+ktlint = "12.1.1"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -28,6 +32,8 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-crashlytics-ktx = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
+timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
+instabug = { group = "com.instabug.library", name = "instabug", version = "11.8.0" }
 
 # Tests
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -36,6 +42,8 @@ androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit
 test-junit = { group = "junit", name = "junit", version.ref = "junit" }
 test-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-test", version = "" }
 test-mockK = { group = "io.mockk", name = "mockk", version.ref = "mockK" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [bundles]
 test = [
@@ -53,3 +61,4 @@ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
 google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "googleFirebaseCrashlytics" }
+android-library = { id = "com.android.library", version.ref = "agp" }

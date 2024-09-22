@@ -10,7 +10,12 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/lib" />
+            <option value="$PROJECT_DIR$/klogx" />
+            <option value="$PROJECT_DIR$/klogx/core" />
+            <option value="$PROJECT_DIR$/klogx/firebase" />
+            <option value="$PROJECT_DIR$/klogx/instabug" />
+            <option value="$PROJECT_DIR$/klogx/logcat" />
+            <option value="$PROJECT_DIR$/klogx/timber" />
             <option value="$PROJECT_DIR$/sample" />
             <option value="$PROJECT_DIR$/sample/android" />
           </set>

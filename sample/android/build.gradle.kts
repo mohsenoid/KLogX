@@ -61,21 +61,29 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.timber)
 
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    implementation(libs.timber)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.crashlytics.ktx)
 
     // Lib
-    implementation(project(":lib"))
+    implementation(project(":klogx:core"))
+    implementation(project(":klogx:logcat"))
+    implementation(project(":klogx:timber"))
+    implementation(project(":klogx:firebase"))
+    implementation(project(":klogx:instabug"))
 
     // Test
     testImplementation(libs.bundles.test)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation(libs.test.kotlin)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
 }

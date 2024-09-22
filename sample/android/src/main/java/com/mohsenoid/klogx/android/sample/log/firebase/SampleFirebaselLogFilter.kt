@@ -10,5 +10,5 @@ class SampleFirebaselLogFilter : KLogFilter {
         level: KLogLevel,
         tag: String,
         throwable: Throwable?,
-    ): Boolean = target == KLogTarget.REMOTE && level >= KLogLevel.INFO
+    ): Boolean = level.priority >= KLogLevel.INFO.priority && (target == KLogTarget.REMOTE || target == KLogTarget.EXTERNAL)
 }

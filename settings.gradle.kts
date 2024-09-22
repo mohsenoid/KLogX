@@ -23,4 +23,11 @@ dependencyResolutionManagement {
 
 rootProject.name = "KLogX"
 
-include(":sample:android", ":lib")
+include(
+    ":klogx:core",
+    ":klogx:logcat",
+    ":klogx:timber",
+    ":klogx:firebase",
+    ":klogx:instabug",
+    ":sample:android",
+)
