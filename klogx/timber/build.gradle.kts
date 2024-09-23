@@ -1,10 +1,13 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("publish")
 }
 
 project.ext.set("PUBLICATION_GROUP_ID", "com.mohsenoid.klogx.android")
 project.ext.set("PUBLICATION_ARTIFACT_ID", "timber")
+project.ext.set("PUBLICATION_PACKAGING", "aar")
+project.ext.set("PUBLICATION_VERSION", LibVersion.versionName)
 
 android {
     namespace = "com.mohsenoid.klogx.android.timber"

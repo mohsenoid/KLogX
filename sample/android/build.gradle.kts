@@ -12,10 +12,12 @@ android {
 
     defaultConfig {
         applicationId = "com.mohsenoid.klogx.android.sample"
+
         minSdk = 24
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+
+        versionCode = LibVersion.versionCode
+        versionName = LibVersion.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
