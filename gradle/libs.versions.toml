@@ -19,6 +19,7 @@ instabug = "11.8.0"
 detekt = "1.23.6"
 ktlint = "12.1.1"
 dokka = "1.9.20"
+gradle-bom = "1.0.0.Final"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -64,3 +65,4 @@ google-gms-google-services = { id = "com.google.gms.google-services", version.re
 google-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "googleFirebaseCrashlytics" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+gradle-bom = { id = "io.github.gradlebom.generator-plugin", version.ref = "gradle-bom" }

@@ -22,9 +22,18 @@ dependencies {
 }
 ```
 
+Or use the BOM (Bill of Material) to manage the versions:
+
+```groovy
+implementation(platform("com.mohsenoid.klogx:klogx-bom:2024.09.29"))
+implementation("com.mohsenoid.klogx:core")
+implementation("com.mohsenoid.klogx.android:logcat")
+implementation("com.mohsenoid.klogx.android:timber")
+implementation("com.mohsenoid.klogx.android:firebase")
+implementation("com.mohsenoid.klogx.android:instabug")
+```
 
 ## Usage
-
 
 ### Basic logging
 

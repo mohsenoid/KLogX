@@ -8,4 +8,6 @@ object LibVersion {
     const val isSnapshot = false
 
     val versionName = "$major.$minor.$patch${if (isSnapshot) "-SNAPSHOT" else ""}"
+
+    const val bomVersion = "2024.09.29"
 }

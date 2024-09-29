@@ -23,6 +23,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/buildSrc" />
             <option value="$PROJECT_DIR$/klogx" />
+            <option value="$PROJECT_DIR$/klogx/bom" />
             <option value="$PROJECT_DIR$/klogx/core" />
             <option value="$PROJECT_DIR$/klogx/firebase" />
             <option value="$PROJECT_DIR$/klogx/instabug" />

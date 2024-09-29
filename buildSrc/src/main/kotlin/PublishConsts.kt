@@ -2,10 +2,10 @@ import org.gradle.api.artifacts.repositories.MavenArtifactRepository
 import org.gradle.api.publish.maven.MavenPom
 import org.gradle.api.publish.maven.MavenPublication
 
-fun MavenPublication.configurePom(projectName: String, packaging: String) {
+fun MavenPublication.configurePom(projectName: String, packaging: String? = null) {
     pom {
         name.set(projectName)
-        this.packaging = packaging
+        packaging?.also { this.packaging = packaging }
         description.set("KLogX ($projectName)")
         url.set("https://mohsenoid.com")
 

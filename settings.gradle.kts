@@ -24,6 +24,7 @@ dependencyResolutionManagement {
 rootProject.name = "KLogX"
 
 include(
+    ":klogx:bom",
     ":klogx:core",
     ":klogx:logcat",
     ":klogx:timber",
