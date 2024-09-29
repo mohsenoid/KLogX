@@ -1,14 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("org.jetbrains.dokka")
-    id("publish")
+    alias(libs.plugins.dokka)
+    id("maven-publish")
+    signing
 }
 
-project.ext.set("PUBLICATION_GROUP_ID", "com.mohsenoid.klogx.android")
-project.ext.set("PUBLICATION_ARTIFACT_ID", "firebase")
 project.ext.set("PUBLICATION_PACKAGING", "aar")
-project.ext.set("PUBLICATION_VERSION", LibVersion.versionName)
 
 android {
     namespace = "com.mohsenoid.klogx.android.firebase"
@@ -37,6 +35,13 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    publishing {
+        singleVariant("release") {
+            // if you don't want sources/javadoc, remove these lines
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 dependencies {
@@ -56,4 +61,32 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.test.kotlin)
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            val publication =
+                create<MavenPublication>("release") {
+                    this.groupId = "com.mohsenoid.klogx.android"
+                    this.artifactId = "firebase"
+                    this.version = LibVersion.versionName
+
+                    from(components["release"])
+
+                    configurePom(projectName = project.name, packaging = "aar")
+                }
+            signing.sign(publication)
+        }
+
+        repositories {
+            maven {
+                configureUrl(isSnapshot = LibVersion.isSnapshot)
+                configureCredentials()
+            }
+        }
+    }
+
+    setProperty("signing.keyId", System.getenv("MOHSENOID_SIGNING_KEY_ID"))
+    setProperty("signing.password", System.getenv("MOHSENOID_SIGNING_PASSWORD"))
 }

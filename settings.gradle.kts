@@ -29,7 +29,6 @@ include(
     ":klogx:timber",
     ":klogx:firebase",
     ":klogx:instabug",
-
     ":sample:android",
     ":sample:console",
 )

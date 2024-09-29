@@ -1,14 +1,52 @@
 plugins {
     alias(libs.plugins.kotlin.jvm)
-    id("org.jetbrains.dokka")
-    id("publish")
+    alias(libs.plugins.dokka)
+    id("maven-publish")
+    signing
 }
-
-project.ext.set("PUBLICATION_GROUP_ID", "com.mohsenoid.klogx")
-project.ext.set("PUBLICATION_ARTIFACT_ID", "core")
-project.ext.set("PUBLICATION_PACKAGING", "jar")
-project.ext.set("PUBLICATION_VERSION", LibVersion.versionName)
 
 dependencies {
     testImplementation(libs.bundles.test)
+}
+
+val sourcesJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("sources")
+    from(sourceSets.main.get().allSource.toList())
+}
+
+val dokkaJar by tasks.registering(Jar::class) {
+    dependsOn("dokkaHtml")
+    archiveClassifier.set("javadoc")
+    from(tasks.getByName("dokkaHtml"))
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            val publication =
+                create<MavenPublication>("release") {
+                    this.groupId = "com.mohsenoid.klogx"
+                    this.artifactId = "core"
+                    this.version = LibVersion.versionName
+
+                    from(components["java"])
+
+                    artifact(sourcesJar)
+                    artifact(dokkaJar)
+
+                    configurePom(projectName = project.name, packaging = "jar")
+                }
+            signing.sign(publication)
+        }
+
+        repositories {
+            maven {
+                configureUrl(isSnapshot = LibVersion.isSnapshot)
+                configureCredentials()
+            }
+        }
+    }
+
+    setProperty("signing.keyId", System.getenv("MOHSENOID_SIGNING_KEY_ID"))
+    setProperty("signing.password", System.getenv("MOHSENOID_SIGNING_PASSWORD"))
 }
