@@ -207,7 +207,7 @@ logWriter.w("Launch timeout has expired, giving up wake Lock!", target = KLogTar
 
 ```groovy
 dependencies {
-    implementation 'com.mohsenoid.klogx.android:logcat:1.0.0'
+    implementation("com.mohsenoid.klogx.android:logcat:1.0.0")
 }
 ```
 
@@ -223,7 +223,7 @@ KLogLogger.registerAppender(logcatLogAppender)
 
 ```groovy
 dependencies {
-    implementation 'com.mohsenoid.klogx.android:timber:1.0.0'
+    implementation("com.mohsenoid.klogx.android:timber:1.0.0")
 }
 ```
 
@@ -239,7 +239,7 @@ KLogLogger.registerAppender(timberLogAppender)
 
 ```groovy
 dependencies {
-    implementation 'com.mohsenoid.klogx.android:firebase:1.0.0'
+    implementation("com.mohsenoid.klogx.android:firebase:1.0.0")
 }
 ```
 
@@ -256,7 +256,7 @@ KLogLogger.registerAppender(firebaseLogAppender)
 
 ```groovy
 dependencies {
-    implementation 'com.mohsenoid.klogx.android:instabug:1.0.0'
+    implementation("com.mohsenoid.klogx.android:instabug:1.0.0")
 }
 ```
 
