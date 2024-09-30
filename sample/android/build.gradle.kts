@@ -73,19 +73,20 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.crashlytics.ktx)
 
-    // Lib
-//    implementation(project(":klogx:core"))
-//    implementation(project(":klogx:logcat"))
-//    implementation(project(":klogx:timber"))
-//    implementation(project(":klogx:firebase"))
-//    implementation(project(":klogx:instabug"))
+    // Libs
+    implementation(project(":klogx:core"))
+    implementation(project(":klogx:logcat"))
+    implementation(project(":klogx:timber"))
+    implementation(project(":klogx:firebase"))
+    implementation(project(":klogx:instabug"))
 
-    implementation(platform("com.mohsenoid.klogx:klogx-bom:${LibVersion.bomVersion}"))
-    implementation("com.mohsenoid.klogx:core")
-    implementation("com.mohsenoid.klogx.android:logcat")
-    implementation("com.mohsenoid.klogx.android:timber")
-    implementation("com.mohsenoid.klogx.android:firebase")
-    implementation("com.mohsenoid.klogx.android:instabug")
+    // Released Libs
+//    implementation(platform("com.mohsenoid.klogx:klogx-bom:${LibVersion.bomVersion}"))
+//    implementation("com.mohsenoid.klogx:core")
+//    implementation("com.mohsenoid.klogx.android:logcat")
+//    implementation("com.mohsenoid.klogx.android:timber")
+//    implementation("com.mohsenoid.klogx.android:firebase")
+//    implementation("com.mohsenoid.klogx.android:instabug")
 
     // Test
     testImplementation(libs.bundles.test)
